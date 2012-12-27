@@ -12,8 +12,9 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello():
-    s= 'Hello! Your IP is '
-    s+=request.remote_addr    
+    s = request.headers.__repr__()
+    s += 'Hello! Your IP is '
+    s +=request.remote_addr    
     return s
 
 if __name__ == '__main__':
