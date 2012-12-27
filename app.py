@@ -1,11 +1,12 @@
 import os
+import cgi
 from flask import Flask
 
 app = Flask(__name__)
 
 @app.route('/')
 def hello():
-    return 'Hello World modified!'
+    return 'Hello World modified! Your IP is '.cgi.escape(os.environ["REMOTE_ADDR"])
 
 if __name__ == '__main__':
     # Bind to PORT if defined, otherwise default to 5000.
